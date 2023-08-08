@@ -5,7 +5,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = os.getenv("MYSQL_INITDB_URL", "")
+from src.config import settings
+
+DATABASE_URL = settings.MYSQL_INITDB_URL
 
 
 def create_db_engine():
@@ -43,3 +45,6 @@ def get_db():
 
 
 Base = declarative_base()
+
+def create_tables(): 
+    Base.metadata.create_all(engine)
