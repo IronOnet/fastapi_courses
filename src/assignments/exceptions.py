@@ -1,0 +1,2 @@
+class AssignmentNotFoundException(Exception): 
+    pass 
